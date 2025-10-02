@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, MessageCircle, Linkedin, Github, Phone } from "lucide-react";
+import HoverMicrointeraction from "./HoverMicrointeraction";
+import AdvancedTextAnimation from "./AdvancedTextAnimation";
+import ParallaxScroll from "./ParallaxScroll";
 
 const Contact = () => {
   const fadeInUp = {
@@ -12,21 +15,14 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 px-4 bg-[var(--gradient-primary)]">
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient">Get In Touch</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">
+        <ParallaxScroll speed={0.3} className="text-center mb-16">
+          <AdvancedTextAnimation type="gradient" className="text-4xl md:text-5xl font-bold mb-4">
+            Get In Touch
+          </AdvancedTextAnimation>
+          <AdvancedTextAnimation type="reveal" className="text-muted-foreground text-lg" delay={0.3}>
             Let's discuss your next project
-          </p>
-        </motion.div>
+          </AdvancedTextAnimation>
+        </ParallaxScroll>
 
         <motion.div
           initial="hidden"
@@ -64,24 +60,28 @@ const Contact = () => {
               </div>
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <Button
-                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() =>
-                    (window.location.href = "mailto:panditkuldeep2019@gmail.com")
-                  }
-                >
-                  <Mail className="mr-2 h-5 w-5" />
-                  Send Email
-                </Button>
+                <HoverMicrointeraction type="glow" intensity="medium">
+                  <Button
+                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground pulse-glow-effect"
+                    onClick={() =>
+                      (window.location.href = "mailto:panditkuldeep2019@gmail.com")
+                    }
+                  >
+                    <Mail className="mr-2 h-5 w-5" />
+                    Send Email
+                  </Button>
+                </HoverMicrointeraction>
 
-                <Button
-                  className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                  variant="outline"
-                  onClick={() => window.open("https://wa.me/917900391944", "_blank")}
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  WhatsApp
-                </Button>
+                <HoverMicrointeraction type="scale" intensity="medium">
+                  <Button
+                    className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                    variant="outline"
+                    onClick={() => window.open("https://wa.me/917900391944", "_blank")}
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    WhatsApp
+                  </Button>
+                </HoverMicrointeraction>
               </div>
 
               <div className="flex gap-4 justify-center pt-6 border-t border-border">

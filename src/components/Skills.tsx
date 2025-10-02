@@ -3,8 +3,23 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ScrollReveal from "./ScrollReveal";
 import HoverGlow from "./HoverGlow";
+import SkeletonLoader, { SkeletonCard } from "./SkeletonLoader";
+import { useState, useEffect } from "react";
+import HoverMicrointeraction from "./HoverMicrointeraction";
+import AdvancedTextAnimation from "./AdvancedTextAnimation";
 
 const Skills = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0 },
@@ -57,11 +72,21 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient">Skills</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">Technologies I work with</p>
+          <AdvancedTextAnimation type="gradient" className="text-4xl md:text-5xl font-bold mb-4">
+            Skills
+          </AdvancedTextAnimation>
+          <AdvancedTextAnimation type="reveal" className="text-muted-foreground text-lg" delay={0.3}>
+            Technologies I work with
+          </AdvancedTextAnimation>
         </motion.div>
+
+        {isLoading ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <SkeletonCard key={index} className="h-64" />
+            ))}
+          </div>
+        ) : (
 
         <div className="grid gap-6 md:grid-cols-2">
           {skillCategories.map((category, index) => (
@@ -113,6 +138,7 @@ const Skills = () => {
             </ScrollReveal>
           ))}
         </div>
+        )}
       </div>
     </section>
   );

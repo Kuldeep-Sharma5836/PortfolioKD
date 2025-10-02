@@ -8,45 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Enhanced Dark Theme with Better Contrast */
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    /* Warm Beige Theme - Rich Beige Tones */
+    --background: 35 25% 88%;     /* Warm beige background */
+    --foreground: 220 30% 8%;     /* Very dark charcoal */
 
-    --card: 224 71% 6%;
-    --card-foreground: 213 31% 91%;
+    --card: 40 30% 92%;           /* Light beige cards */
+    --card-foreground: 220 30% 8%;
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 213 31% 91%;
+    --popover: 35 25% 88%;
+    --popover-foreground: 220 30% 8%;
 
-    /* Vibrant Primary Colors */
-    --primary: 262 83% 58%;
-    --primary-foreground: 213 31% 91%;
+    /* Vibrant Primary - Deep Teal */
+    --primary: 190 85% 45%;       /* Deep teal */
+    --primary-foreground: 45 25% 96%;
 
-    --secondary: 224 71% 8%;
-    --secondary-foreground: 213 31% 91%;
+    --secondary: 35 20% 85%;      /* Medium beige */
+    --secondary-foreground: 220 30% 8%;   /* Very dark text */
 
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
+    --muted: 40 15% 80%;
+    --muted-foreground: 220 25% 25%;      /* Much darker for readability */
 
-    /* Beautiful Accent Colors */
-    --accent: 280 100% 70%;
-    --accent-foreground: 224 71% 4%;
+    /* Elegant Accent - Rose */
+    --accent: 320 65% 55%;        /* Elegant rose */
+    --accent-foreground: 45 25% 96%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 350 75% 50%;   /* Muted red */
+    --destructive-foreground: 45 25% 96%;
 
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 262 83% 58%;
+    --border: 35 20% 75%;
+    --input: 40 25% 85%;
+    --ring: 190 85% 45%;          /* Deep teal ring */
 
     --radius: 0.75rem;
     
-    /* Enhanced Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58% / 0.15), hsl(280 100% 70% / 0.15));
-    --gradient-hero: linear-gradient(180deg, hsl(224 71% 4%), hsl(224 71% 6%));
-    --gradient-accent: linear-gradient(45deg, hsl(262 83% 58%), hsl(280 100% 70%), hsl(300 100% 60%));
-    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.4);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Beige Theme Gradients - Warm & Elegant */
+    --gradient-primary: linear-gradient(135deg, hsl(35 25% 88%), hsl(40 30% 92%), hsl(30 20% 85%));
+    --gradient-hero: linear-gradient(135deg, hsl(35 25% 88%), hsl(40 30% 92%), hsl(35 35% 90%));
+    --gradient-accent: linear-gradient(135deg, hsl(190 85% 45%), hsl(270 70% 60%), hsl(320 65% 55%), hsl(45 85% 60%));
+    --gradient-cosmic: linear-gradient(45deg, hsl(190 85% 45%), hsl(270 70% 60%), hsl(320 65% 55%), hsl(45 85% 60%));
+    --gradient-aurora: linear-gradient(90deg, hsl(190 85% 45%), hsl(270 70% 60%), hsl(320 65% 55%), hsl(275 80% 65%), hsl(190 85% 45%));
+    --shadow-glow: 0 0 30px hsl(190 85% 45% / 0.3);
+    --shadow-aurora: 0 0 40px hsl(320 65% 55% / 0.2), 0 0 60px hsl(190 85% 45% / 0.15);
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sidebar-background: 0 0% 98%;
 
@@ -247,6 +250,240 @@ All colors MUST be HSL.
 
   .slide-in-right {
     animation: slideInRight 0.8s ease-out;
+  }
+
+  /* New Advanced Animations */
+  @keyframes gradient-move {
+    0%, 100% { background-position: 200% 50%; }
+    50% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 
+        0 0 20px rgba(64, 224, 208, 0.4),
+        0 0 40px rgba(147, 51, 234, 0.2);
+      transform: scale(1);
+    }
+    33% { 
+      box-shadow: 
+        0 0 30px rgba(147, 51, 234, 0.5),
+        0 0 60px rgba(219, 39, 119, 0.3);
+      transform: scale(1.02);
+    }
+    66% { 
+      box-shadow: 
+        0 0 25px rgba(219, 39, 119, 0.4),
+        0 0 50px rgba(251, 191, 36, 0.3);
+      transform: scale(1.01);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .gradient-text-animate {
+    background: linear-gradient(90deg, #0a5d61, #5a1e8a, #8b4fa6, #d91755, #0a5d61);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-move 4s ease-in-out infinite;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .aurora-text {
+    background: linear-gradient(45deg, #0a5d61, #5a1e8a, #8b4fa6, #d91755);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-move 3s linear infinite;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .cosmic-glow {
+    background: linear-gradient(135deg, #40e0d0, #8b5cf6, #ec4899);
+    border-radius: 1rem;
+    padding: 2px;
+    position: relative;
+  }
+
+  .cosmic-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(135deg, #40e0d0, #8b5cf6, #ec4899, #f59e0b);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+  }
+
+  .pulse-glow-effect {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .aurora-border {
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #40e0d0, #8b5cf6, #ec4899) border-box;
+    background-clip: padding-box;
+  }
+
+  /* Beautiful Background Themes - Light & Dark Options */
+  
+  /* Current Warm Beige Theme */
+  .bg-warm-beige {
+    background: linear-gradient(135deg, hsl(35, 25%, 88%), hsl(40, 30%, 92%), hsl(30, 20%, 85%));
+  }
+
+  /* Rich Beige Theme */
+  .bg-rich-beige {
+    background: linear-gradient(135deg, #e8dcc0, #f0e6d2, #d4c4a0);
+  }
+
+  /* Sandy Beige Theme */
+  .bg-sandy-beige {
+    background: linear-gradient(135deg, #f5f0e8, #ebe1d6, #e0d3c0);
+  }
+
+  /* Cream Beige Theme */
+  .bg-cream-beige {
+    background: linear-gradient(135deg, #f2ead3, #ede4c8, #e6d7b8);
+  }
+
+  /* Pure White Theme */
+  .bg-pure-white {
+    background: linear-gradient(135deg, #ffffff, #fafafa, #f5f5f5);
+  }
+
+  /* Warm Cream Theme */
+  .bg-warm-cream {
+    background: linear-gradient(135deg, #faf7f0, #f5f1e8, #f0ebe3);
+  }
+
+  /* Soft Ivory Theme */
+  .bg-soft-ivory {
+    background: linear-gradient(135deg, #fffef7, #fefcf3, #fdf8e7);
+  }
+
+  /* Light Gray Theme */
+  .bg-light-gray {
+    background: linear-gradient(135deg, #f8f9fa, #f1f3f4, #e8eaed);
+  }
+
+  /* DARK THEMES (Previous) */
+  
+  /* Ocean Theme */
+  .bg-ocean-depths {
+    background: linear-gradient(135deg, #001122, #003344, #004466, #0066bb);
+  }
+
+  /* Sunset Theme */
+  .bg-sunset-dream {
+    background: linear-gradient(135deg, #2c1810, #4a2c2a, #8b4f47, #d2691e);
+  }
+
+  /* Forest Theme */
+  .bg-forest-mystique {
+    background: linear-gradient(135deg, #0f1419, #1a2f23, #2d4a32, #4a7c59);
+  }
+
+  /* Cosmic Theme */
+  .bg-cosmic-dust {
+    background: linear-gradient(135deg, #1a0b2e, #16213e, #0f3460, #533483);
+  }
+
+  /* Midnight Theme */
+  .bg-midnight-aurora {
+    background: linear-gradient(135deg, hsl(260, 50%, 6%), hsl(255, 45%, 9%), hsl(270, 55%, 15%));
+  }
+
+  /* Hover Color Effects */
+  .hover-aurora:hover {
+    background: linear-gradient(135deg, #40e0d0, #8b5cf6, #ec4899, #f59e0b);
+    color: white;
+    transition: all 0.4s ease;
+  }
+
+  .text-aurora {
+    background: linear-gradient(45deg, #0a5d61, #5a1e8a, #8b4fa6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+
+  /* Enhanced Typography for Light Background */
+  
+  .text-heading-primary {
+    color: hsl(220, 30%, 8%);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .text-heading-secondary {
+    color: hsl(220, 25%, 12%);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .text-body-primary {
+    color: hsl(220, 30%, 8%);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  .text-body-secondary {
+    color: hsl(220, 25%, 25%);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+  }
+
+  .text-accent-primary {
+    color: hsl(190, 95%, 25%);
+    font-weight: 600;
+  }
+
+  .text-accent-secondary {
+    color: hsl(320, 85%, 35%);
+    font-weight: 500;
+  }
+
+  .text-elegant {
+    background: linear-gradient(135deg, #0a5d61, #5a1e8a, #8b4fa6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  .text-professional {
+    color: hsl(220, 30%, 8%);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-subtle {
+    color: hsl(220, 25%, 35%);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .text-emphasis {
+    color: hsl(190, 95%, 25%);
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(13, 115, 119, 0.2);
   }
 
   @keyframes slideInRight {

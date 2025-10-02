@@ -38,3 +38,4 @@ const TypewriterText = ({ text, speed = 100, delay = 0, className = "" }: Typewr
 };
 
 export default TypewriterText;
+

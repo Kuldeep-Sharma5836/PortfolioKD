@@ -7,6 +7,9 @@ import MagneticButton from "./MagneticButton";
 import TypewriterText from "./TypewriterText";
 import RotatingIcon from "./RotatingIcon";
 import WaveAnimation from "./WaveAnimation";
+import ParallaxScroll from "./ParallaxScroll";
+import HoverMicrointeraction from "./HoverMicrointeraction";
+import AdvancedTextAnimation from "./AdvancedTextAnimation";
 
 const Hero = () => {
   const ref = useRef(null);

@@ -40,3 +40,4 @@ const WaveAnimation = () => {
 };
 
 export default WaveAnimation;
+

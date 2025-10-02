@@ -36,3 +36,4 @@ const RotatingIcon = ({
 };
 
 export default RotatingIcon;
+

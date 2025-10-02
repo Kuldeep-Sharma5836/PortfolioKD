@@ -51,3 +51,4 @@ const MagneticButton = ({ children, className = "", onClick }: MagneticButtonPro
 };
 
 export default MagneticButton;
+

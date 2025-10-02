@@ -48,3 +48,4 @@ const TextReveal = ({ children, className = "", delay = 0 }: TextRevealProps) =>
 };
 
 export default TextReveal;
+

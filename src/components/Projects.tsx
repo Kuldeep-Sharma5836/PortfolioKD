@@ -4,6 +4,9 @@ import { Cloud, Home, Wallet } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import HoverGlow from "./HoverGlow";
 import RotatingIcon from "./RotatingIcon";
+import HoverMicrointeraction from "./HoverMicrointeraction";
+import ScrollTriggeredAnimation from "./ScrollTriggeredAnimation";
+import AdvancedTextAnimation from "./AdvancedTextAnimation";
 
 const Projects = () => {
   const fadeInUp = {
@@ -49,29 +52,20 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 px-4 bg-[var(--gradient-primary)]">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient">Projects</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">Building solutions that make a difference</p>
-        </motion.div>
+        <ScrollTriggeredAnimation animation="fadeUp" className="text-center mb-16">
+          <AdvancedTextAnimation type="gradient" className="text-4xl md:text-5xl font-bold mb-4">
+            Projects
+          </AdvancedTextAnimation>
+          <AdvancedTextAnimation type="reveal" className="text-muted-foreground text-lg" delay={0.3}>
+            Building solutions that make a difference
+          </AdvancedTextAnimation>
+        </ScrollTriggeredAnimation>
 
         <div className="grid gap-8">
           {projects.map((project, index) => (
-            <ScrollReveal key={index} direction="up" delay={index * 0.2}>
-              <HoverGlow className="rounded-xl">
-                <motion.div
-                  whileHover={{ scale: 1.02, rotateY: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Card className="p-8 bg-card border-border hover-lift glass-effect relative overflow-hidden">
+            <ScrollTriggeredAnimation key={index} animation="scale" className="w-full">
+              <HoverMicrointeraction type="glow" intensity="medium" className="rounded-xl">
+                <Card className="p-8 bg-card border-border hover-lift glass-effect relative overflow-hidden">
                     {/* Background gradient animation */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 opacity-0"
@@ -107,9 +101,8 @@ const Projects = () => {
                       ))}
                     </ul>
                   </Card>
-                </motion.div>
-              </HoverGlow>
-            </ScrollReveal>
+                </HoverMicrointeraction>
+              </ScrollTriggeredAnimation>
           ))}
         </div>
       </div>
